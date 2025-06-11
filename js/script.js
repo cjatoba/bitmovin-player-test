@@ -20,7 +20,7 @@ async function getSupportedDRMs() {
       await navigator.requestMediaKeySystemAccess(ks.name, config);
       supportedDRMs.push(ks.label);
     } catch (e) {
-      // DRM não suportado
+      console.error(`DRM ${ks.label} not supported:`, e);
     }
   }
 
