@@ -40,11 +40,9 @@ async function showSupportedDRMs() {
   }
 }
 
-showSupportedDRMs();
+showSupportedDRMs().catch(console.error);
 
 const loadMediaButton = document.getElementById("load-media-button");
-
-
 
 loadMediaButton.onclick = () => {
   const bitmovinKey = document.getElementById("bitmovin-key").value;
