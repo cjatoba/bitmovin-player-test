@@ -42,6 +42,33 @@ async function showSupportedDRMs() {
 
 showSupportedDRMs().catch(console.error);
 
+let player;
+
+function updateUrlWithParams(params) {
+  const searchParams = new URLSearchParams(params);
+  const newUrl = `${location.protocol}//${location.host}${location.pathname}?${searchParams.toString()}`;
+  history.replaceState(null, '', newUrl);
+}
+
+function fillFieldsFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+
+  const fields = [
+    'bitmovin-key', 'dash-url', 'hls-url',
+    'widevine-la-url', 'playready-la-url',
+    'fairplay-la-url', 'fairplay-cert-url'
+  ];
+
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (params.has(id)) {
+      el.value = params.get(id);
+    }
+  });
+}
+
+window.addEventListener('DOMContentLoaded', fillFieldsFromUrl);
+
 const loadMediaButton = document.getElementById("load-media-button");
 
 loadMediaButton.onclick = () => {
@@ -53,8 +80,22 @@ loadMediaButton.onclick = () => {
   const fairplayLaUrl = document.getElementById("fairplay-la-url").value;
   const fairplayCertUrl = document.getElementById("fairplay-cert-url").value;
 
+  updateUrlWithParams({
+    'bitmovin-key': bitmovinKey,
+    'dash-url': dashUrl,
+    'hls-url': hlsUrl,
+    'widevine-la-url': widevineLaUrl,
+    'playready-la-url': playreadyLaUrl,
+    'fairplay-la-url': fairplayLaUrl,
+    'fairplay-cert-url': fairplayCertUrl
+  });
+
   const conf = {
-    key: bitmovinKey
+    key: bitmovinKey,
+    playback: {
+      autoplay: true,
+      muted: false
+    },
   };
 
   const source = {
@@ -109,10 +150,12 @@ loadMediaButton.onclick = () => {
     }
   };
 
-  const player = new bitmovin.player.Player(
-    document.getElementById("player"),
-    conf
-  );
+  if (!player) {
+    player = new bitmovin.player.Player(
+      document.getElementById("player"),
+      conf
+    );
+  }
 
   player.load(source);
-}
+};
