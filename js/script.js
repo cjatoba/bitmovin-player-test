@@ -47,13 +47,13 @@ const loadMediaButton = document.getElementById("load-media-button");
 
 
 loadMediaButton.onclick = () => {
-  bitmovinKey = document.getElementById("bitmovin-key").value;
-  dashUrl = document.getElementById("dash-url").value;
-  hlsUrl = document.getElementById("hls-url").value;
-  widevineLaUrl = document.getElementById("widevine-la-url").value;
-  playreadyLaUrl = document.getElementById("playready-la-url").value;
-  fairplayLaUrl = document.getElementById("fairplay-la-url").value;
-  fairplayCertUrl = document.getElementById("fairplay-cert-url").value;
+  const bitmovinKey = document.getElementById("bitmovin-key").value;
+  const dashUrl = document.getElementById("dash-url").value;
+  const hlsUrl = document.getElementById("hls-url").value;
+  const widevineLaUrl = document.getElementById("widevine-la-url").value;
+  const playreadyLaUrl = document.getElementById("playready-la-url").value;
+  const fairplayLaUrl = document.getElementById("fairplay-la-url").value;
+  const fairplayCertUrl = document.getElementById("fairplay-cert-url").value;
 
   const conf = {
     key: bitmovinKey
@@ -90,7 +90,7 @@ loadMediaButton.onclick = () => {
             return uri.split("://")[1].split(":")[0];
           }
 
-          return getProtocol(uri) == "skd" ? getContentId(uri) : "";
+          return getProtocol(uri) === "skd" ? getContentId(uri) : "";
         },
         prepareLicenseAsync: (ckc) => {
           return new Promise((resolve, reject) => {
