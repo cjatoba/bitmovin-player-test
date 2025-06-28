@@ -1,18 +1,19 @@
 body {
     background: #181a1b;
-    color: #e0e0e0;
     font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     background: #181a1b;
+    gap: 16px;
 }
 
 .player-wrapper {
     flex: 1;
+    min-width: 320px;
     padding: 8px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
     background: #232526;
@@ -22,6 +23,7 @@ body {
 #player {
     width: 100%;
     height: 100%;
+    min-height: 200px;
     background: #181a1b;
     color: #e0e0e0;
 }
@@ -34,11 +36,15 @@ body {
     align-items: center;
     font-size: 24px;
     color: #b0b0b0;
+    text-align: center;
 }
 
 .details {
     flex: 1;
+    min-width: 280px;
     padding: 16px;
+    background: #232526;
+    border-radius: 8px;
 }
 
 .field {
@@ -51,16 +57,18 @@ body {
     display: block;
     color: #e0e0e0;
     margin-bottom: 4px;
+    font-weight: bold;
 }
 
 .field input {
-    width: 90%;
+    width: 100%;
     background: #181a1b;
     color: #e0e0e0;
     border: 1px solid #444;
     border-radius: 4px;
     padding: 6px 8px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 #drmElement {
@@ -90,4 +98,45 @@ footer button {
 footer button:hover {
     background: #333;
     color: #fff;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+    .player-wrapper,
+    .details {
+        min-width: 0;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+    .player-wrapper,
+    .details {
+        padding: 8px 4px;
+        border-radius: 0;
+        box-shadow: none;
+        margin-bottom: 8px;
+    }
+    .details {
+        padding-bottom: 0;
+    }
+    .field {
+        padding: 6px 0;
+    }
+    footer {
+        padding: 8px 0 0 0;
+    }
+    footer button {
+        font-size: 18px;
+        height: 36px;
+    }
 }

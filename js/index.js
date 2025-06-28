@@ -35,5 +35,11 @@ loadMediaButton.onclick = () => {
     fairplayCertUrl
   }).catch(error => {
     console.error("Error loading media:", error);
+  }).finally(() => {
+    const loadingMessageElement = document.getElementById("loading-message");
+
+    if (loadingMessageElement) {
+      loadingMessageElement.style.display = "none";
+    }
   })
 };
