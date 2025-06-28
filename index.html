@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Bitmovin Player Test</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <head>
+        <title>Bitmovin Player Test</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/png" href="favicon.ico">
 
-<main class="container">
-    <section class="player-wrapper">
-        <div id="player">
-            <div class="loading-message">
-                Fill in the fields and click the "Load Media" button to load the player
-            </div>
-        </div>
-    </section>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js" async ></script>
+        <script type="module" src="js/index.js"></script>
+    </head>
+    <body>
+        <main class="container">
+            <section class="player-wrapper">
+                <div id="player">
+                    <div class="loading-message">
+                        Fill in the fields and click the "Load Media" button to load the player
+                    </div>
+                </div>
+            </section>
 
-    <section class="details">
-        <div class="field">
-            <label>Bitmovin Key:</label>
-            <input type="text" id="bitmovin-key"></input>
-        </div>
+            <section class="details">
+                <div class="field">
+                    <label>Bitmovin Key:</label>
+                    <input type="text" id="bitmovin-key"></input>
+                </div>
 
-        <div class="field">
-            <label>DASH URL:</label>
-            <input type="text" id="dash-url"></input>
-        </div>
+                <div class="field">
+                    <label>DASH URL:</label>
+                    <input type="text" id="dash-url"></input>
+                </div>
 
-        <div class="field">
-            <label>HLS URL:</label>
-            <input type="text" id="hls-url"></input>
-        </div>
+                <div class="field">
+                    <label>HLS URL:</label>
+                    <input type="text" id="hls-url"></input>
+                </div>
 
-        <div class="field">
-            <label>Widevine LA_URL:</label>
-            <input type="text" id="widevine-la-url"></input>
-        </div>
+                <div class="field">
+                    <label>Widevine LA_URL:</label>
+                    <input type="text" id="widevine-la-url"></input>
+                </div>
 
-        <div class="field">
-            <label>Playready LA_URL:</label>
-            <input type="text" id="playready-la-url"></input>
-        </div>
+                <div class="field">
+                    <label>Playready LA_URL:</label>
+                    <input type="text" id="playready-la-url"></input>
+                </div>
 
-        <div class="field">
-            <label>Fairplay LA_URL:</label>
-            <input type="text" id="fairplay-la-url"></input>
-        </div>
+                <div class="field">
+                    <label>Fairplay LA_URL:</label>
+                    <input type="text" id="fairplay-la-url"></input>
+                </div>
 
-        <div class="field">
-            <label>Fairplay Cert URL:</label>
-            <input type="text" id="fairplay-cert-url"></input>
-        </div>
+                <div class="field">
+                    <label>Fairplay Cert URL:</label>
+                    <input type="text" id="fairplay-cert-url"></input>
+                </div>
 
-    </section>
-</main>
-<footer>
-    <div id="drmElement">Detecting suported DRMs...</div>
-    <button id="load-media-button">Load Media</button>
-</footer>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-
-</body>
+            </section>
+        </main>
+        <footer>
+            <div id="drmElement">Detecting suported DRMs...</div>
+            <button id="load-media-button">Load Media</button>
+        </footer>
+    </body>
 </html>
