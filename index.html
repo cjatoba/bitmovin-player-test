@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <meta name="theme-color" content="#181a1b">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <title>Bitmovin Player Test</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" type="image/png" href="favicon.ico">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js" async ></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js"></script>
         <script type="module" src="js/index.js"></script>
     </head>
     <body>
@@ -61,5 +66,26 @@
             <div id="drmElement">Detecting suported DRMs...</div>
             <button id="load-media-button">Load Media</button>
         </footer>
+        
+        <section class="logs-section">
+            <div class="logs-header">
+                <h3>Player & Network Logs</h3>
+                <div class="logs-controls">
+                    <button id="clear-logs-button">Clear Logs</button>
+                    <button id="toggle-logs-button">Hide Logs</button>
+                    <button id="scroll-to-bottom-button">Go to Bottom</button>
+                    <span class="scroll-status" id="scroll-status">Auto-scroll paused</span>
+                </div>
+            </div>
+            <div class="logs-container" id="logs-container">
+                <div class="logs-content" id="logs-content">
+                    <div class="log-entry info">
+                        <span class="log-timestamp">[00:00:00.000]</span>
+                        <span class="log-level">[INFO]</span>
+                        <span class="log-message">Logs will appear here when the player is loaded...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
